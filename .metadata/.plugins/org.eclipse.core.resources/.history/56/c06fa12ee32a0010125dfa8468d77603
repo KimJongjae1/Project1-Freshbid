@@ -1,0 +1,104 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
+import java.util.StringTokenizer;
+
+public class Solution {
+	 public static class node{
+		 int num;
+		 node prev;
+		 node nxt;
+		 
+		 public node(int num) {
+			 this.num=num;
+			 this.prev=null;
+			 this.nxt=null;
+		 }
+		 
+	 }
+ 
+	 //left              right
+	 public static void main(String[] args) throws IOException{
+		   BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		   StringBuilder sb=new StringBuilder();
+		   StringTokenizer st=new StringTokenizer(br.readLine());
+		   int N=Integer.parseInt(st.nextToken());
+		   int M=Integer.parseInt(st.nextToken());
+		   node[] subway=new node[1000005];
+		   
+		   st=new StringTokenizer(br.readLine());
+		   int start=Integer.parseInt(st.nextToken());
+		   subway[start]=new node(start);
+		   int before=start;
+		   for(int i=1;i<N;i++) {
+			   int n=Integer.parseInt(st.nextToken());
+			   
+			   subway[n]=new node(n);
+			   subway[before].nxt=subway[n];
+			   subway[n].prev=subway[before];
+			   before=n;
+			   
+		   }
+		   subway[start].prev=subway[before];
+		   subway[before].nxt=subway[start];
+		   
+		   for(int i=0;i<M;i++) {
+			   st=new StringTokenizer(br.readLine());
+			   String order=st.nextToken();
+			   switch(order) {
+			   	 
+			   case "BN":
+				   int n = Integer.parseInt(st.nextToken());
+				   int newN=Integer.parseInt(st.nextToken());
+				   int nNext=subway[n].nxt.num;
+				   sb.append(subway[nNext].num).append("\n");
+				   if(subway[newN]==null)subway[newN]=new node(newN);
+				   subway[n].nxt=subway[newN];
+				   subway[newN].prev=subway[n];
+				   subway[newN].nxt=subway[nNext];
+				   subway[nNext].prev=subway[newN];
+				   break;
+			   
+			   case "BP":
+				   n = Integer.parseInt(st.nextToken());
+				   newN=Integer.parseInt(st.nextToken());
+				   int nPrev=subway[n].prev.num;
+				   sb.append(subway[nPrev].num).append("\n");
+				   if(subway[newN]==null)subway[newN]=new node(newN);
+				   subway[n].prev=subway[newN];
+				   subway[newN].nxt=subway[n];
+				   subway[newN].prev=subway[nPrev];
+				   subway[nPrev].nxt=subway[newN];
+				   break;
+				   
+			   case "CN":
+				   n = Integer.parseInt(st.nextToken());
+				   nNext=subway[n].nxt.num;
+				   int nNNext=subway[nNext].nxt.num;
+				   sb.append(subway[nNext].num).append("\n");
+				   subway[nNext].prev=null;
+				   subway[nNext].nxt=null;
+				   subway[n].nxt=subway[nNNext];
+				   subway[nNNext].prev=subway[n];
+				   break;
+				   
+				   
+			   case "CP":
+				   n = Integer.parseInt(st.nextToken());
+				   nPrev=subway[n].prev.num;
+				   int nPPrev=subway[nPrev].prev.num;
+				   sb.append(subway[nPrev].num).append("\n");
+				   subway[nPrev].prev=null;
+				   subway[nPrev].nxt=null;
+				   subway[n].prev=subway[nPPrev];
+				   subway[nPPrev].nxt=subway[n];
+				   break;
+			   }
+			   
+		   }
+		   System.out.println(sb);
+		   
+	 }
+
+}

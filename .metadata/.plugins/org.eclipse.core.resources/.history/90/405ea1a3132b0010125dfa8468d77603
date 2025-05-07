@@ -1,0 +1,5 @@
+package com.example.loginapi.controller;
+
+public class UserController {
+
+}

@@ -1,0 +1,5 @@
+package com.example.loginapi.domain;
+
+public class User {
+
+}
