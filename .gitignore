@@ -1,0 +1,13 @@
+.idea/
+.vscode/
+
+nginx/*.conf
+
+.claude/
+
+back/.claude/
+back/claude/
+
+.mcp.json
+back/.mcp.json
+front/.mcp.json

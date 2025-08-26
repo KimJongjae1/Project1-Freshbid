@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "/images/apple.jpg",
+    "name": "맛있는 사과",
+    "description": "맛도 좋고 몸에도 좋은 사과입니다\n구매하면 후회 안 함",
+    "auctionDate": "2025.7.25 5:00:00",
+    "category": "과일",
+    "badges": ["무료 배송"]
+  },
+  {
+    "id": 2,
+    "imageUrl": "/images/melon.jpg",
+    "name": "신선한 참외",
+    "description": "달콤하고 아삭한 참외입니다\n지금 바로 경매에 참여하세요",
+    "auctionDate": "2025.7.25 5:00:00",
+    "category": "과일",
+    "badges": ["무료 배송"]
+  },
+    {
+    "id": 3,
+    "imageUrl": "/images/peach.jpg",
+    "name": "달콤한 복숭아",
+    "description": "여름에 딱 맞는 달콤한 복숭아입니다\n입에 넣는 순간 살살 녹아요",
+    "auctionDate": "2025.7.25 5:00:00",
+    "category": "과일",
+    "badges": ["무료 배송"]
+  },
+  {
+    "id": 4,
+    "imageUrl": "/images/corn.jpg",
+    "name": "찰옥수수 10개입",
+    "description": "쫀득쫀득한 찰옥수수!\n전자레인지에 돌려먹기 딱 좋아요",
+    "auctionDate": "2025.7.25 5:00:00",
+    "category": "곡류",
+    "badges": ["무료 배송"]
+  }
+]

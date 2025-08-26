@@ -1,0 +1,12 @@
+# 로컬 의존성 폴더 제외
+node_modules
+
+# 빌드 결과물 제외
+dist
+
+# 디버그 로그 및 기타 불필요 파일 제외
+npm-debug.log
+.DS_Store
+
+# 버전 관리 폴더 제외
+.git

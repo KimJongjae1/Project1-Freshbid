@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<body th:replace="email/base :: ~{::body}">
+    <div class="content">
+        <p th:if="${isCustomer}">구매자님께 알려드립니다.</p>
+        <p th:unless="${isCustomer}">판매자님께 알려드립니다.</p>
+        
+        <div class="info-box">
+            <h3>주문 정보</h3>
+            <p><strong>주문 번호:</strong> <span th:text="${order.id}">12345</span></p>
+            <p><strong>주문 상태:</strong> <span th:text="${order.status}">WAITING</span></p>
+        </div>
+        
+        <div class="info-box">
+            <h3>상품 정보</h3>
+            <p><strong>상품명:</strong> <span th:text="${order.auction.product.name}">상품명</span></p>
+            <p><strong>판매자:</strong> <span th:text="${order.seller.nickname}">판매자명</span></p>
+        </div>
+    </div>
+</body>
+</html>

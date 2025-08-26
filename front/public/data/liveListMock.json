@@ -1,0 +1,101 @@
+{
+  "success": true,
+  "message": "Live 목록 조회에 성공했습니다.",
+  "data": {
+    "content": [
+      {
+        "id": 1,
+        "title": "신선한 농산물 라이브 경매",
+        "startDate": "2024-12-01T10:00:00",
+        "endDate": "2024-12-01T12:00:00",
+        "seller": {
+          "sellerId": 301,
+          "nickname": "박봉팔"
+        },
+        "auctions": [
+          {
+            "id": 100,
+            "startPrice": 20000,
+            "currentPrice": 27500,
+            "likeCount": 12,
+            "startTime": "2025-12-01T10:00:00",
+            "endTime": "2025-12-01T10:10:00",
+            "status": "scheduled",
+            "product": {
+              "title": "완숙 토마토 5kg",
+              "imageUrl": "/images/auction-tomato.jpg",
+              "category": "채소",
+              "deliveryDate": "2024-12-03"
+            },
+            "farm": {
+              "id": 5,
+              "name": "정선농원"
+            }
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "달콤한 딸기 특가 라이브",
+        "startDate": "2024-12-02T14:00:00",
+        "endDate": "2024-12-02T15:00:00",
+        "seller": {
+          "sellerId": 302,
+          "nickname": "김딸기"
+        },
+        "auctions": [
+          {
+            "id": 101,
+            "startPrice": 15000,
+            "currentPrice": 18000,
+            "likeCount": 5,
+            "startTime": "2024-12-02T14:00:00",
+            "endTime": "2024-12-02T14:10:00",
+            "status": "active",
+            "product": {
+              "title": "딸기 2kg",
+              "imageUrl": "/images/product-strawberry.jpg",
+              "category": "과일",
+              "deliveryDate": "2024-12-04"
+            },
+            "farm": {
+              "id": 6,
+              "name": "딸기마을"
+            }
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "고구마 맛집 라이브 방송",
+        "startDate": "2024-12-03T11:00:00",
+        "endDate": "2024-12-03T12:00:00",
+        "seller": {
+          "sellerId": 303,
+          "nickname": "이감자"
+        },
+        "auctions": [
+          {
+            "id": 102,
+            "startPrice": 10000,
+            "currentPrice": 12000,
+            "likeCount": 3,
+            "startTime": "2024-12-03T11:00:00",
+            "endTime": "2024-12-03T11:10:00",
+            "status": "closed",
+            "product": {
+              "title": "호박고구마 3kg",
+              "imageUrl": "/images/product-sweetpotato.jpg",
+              "category": "채소",
+              "deliveryDate": "2024-12-05"
+            },
+            "farm": {
+              "id": 7,
+              "name": "감자농장"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

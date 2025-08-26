@@ -1,0 +1,16 @@
+names:
+  0: one
+  1: two
+  2: three
+  3: four
+  4: five
+  5: six
+  6: seven
+  7: eight
+  8: nine
+  9: ten
+nc: 10
+path: C:\Users\SSAFY\code\S13P11A305\ai\GestureRecognition\dataset\yolo_auction_dataset
+test: images/test
+train: images/train
+val: images/val

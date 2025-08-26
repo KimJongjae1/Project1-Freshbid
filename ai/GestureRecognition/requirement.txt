@@ -1,0 +1,28 @@
+# YOLOv8 경매 손동작 인식 프로젝트 요구사항
+
+# 핵심 패키지
+ultralytics>=8.0.0
+opencv-python>=4.5.0
+
+# 데이터 처리 및 시각화
+numpy>=1.21.0
+pandas>=1.3.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
+Pillow>=8.3.0
+
+# 머신러닝 및 평가
+scikit-learn>=1.0.0
+scipy>=1.7.0
+
+# 자동 라벨링 (선택사항)
+mediapipe>=0.8.0
+
+# 데이터 포맷
+PyYAML>=6.0
+
+# 추가 유틸리티
+tqdm>=4.62.0
+
+onnx
+onnxruntime

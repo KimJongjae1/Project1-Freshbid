@@ -1,0 +1,10 @@
+# Gradle 캐시 및 빌드 폴더 제외
+.gradle
+build
+
+# IDE 설정 파일 제외
+.idea
+*.iml
+
+# 버전 관리 폴더 제외
+.git

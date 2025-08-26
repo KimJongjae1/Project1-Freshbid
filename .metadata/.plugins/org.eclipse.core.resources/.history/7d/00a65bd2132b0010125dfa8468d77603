@@ -1,5 +1,0 @@
-package com.example.loginapi.repository;
-
-public class UserRepository {
-
-}

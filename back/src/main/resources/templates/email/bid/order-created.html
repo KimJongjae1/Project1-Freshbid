@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<body th:replace="email/bid/order-base :: ~{::body}">
+    <div class="content">
+        <h2>주문이 생성되었습니다</h2>
+        <p th:if="${isCustomer}">귀하의 주문이 성공적으로 생성되었습니다. 결제를 진행해 주세요.</p>
+        <p th:unless="${isCustomer}">새로운 주문이 생성되었습니다. 결제 확인 후 상품을 준비해 주세요.</p>
+    </div>
+</body>
+</html>

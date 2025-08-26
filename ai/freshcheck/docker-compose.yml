@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  freshcheck:
+    build: .
+    container_name: freshcheck
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    restart: unless-stopped
+    networks:
+      - freshcheck_network
+networks:
+  freshcheck_network:
+    name: freshcheck_network
+    driver: bridge

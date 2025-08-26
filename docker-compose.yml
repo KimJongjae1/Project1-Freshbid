@@ -1,0 +1,103 @@
+services:
+  backend:
+    build: ./back
+    image: my-backend:web
+    container_name: backend
+    ports:
+      - "8088:8088"
+    env_file:
+      - ./back/.env
+    volumes:
+      - ./back/src/main/resources/keys/private.pem:/app/keys/private.pem
+      - ./back/src/main/resources/keys/public.pem:/app/keys/public.pem
+    networks:
+      - freshbid_network
+      - redis_network
+      - kms_network
+      - minio_network
+    environment:
+      TZ: Asia/Seoul
+      AI_SERVICE_URL: http://ai-service:5001
+
+  frontend:
+    build: ./front
+    image: my-frontend:web
+    container_name: frontend
+    ports:
+      - "10080:80"
+    networks:
+      - freshbid_network
+
+  ai-service:
+    build: ./ai/predict
+    image: ai-predict:latest
+    container_name: ai-predict
+    ports:
+      - "5001:5001"
+    environment:
+      - FLASK_ENV=production
+    networks:
+      - freshbid_network
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    image: nginx:latest
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+
+    volumes:
+      - certbot-etc:/etc/letsencrypt:ro
+      - certbot-webroot:/var/www/certbot
+    depends_on:
+      - certbot
+    networks:
+      - freshbid_network
+      - jenkins_network
+      - portainer_network
+      - minio_network
+      - freshcheck_network
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-webroot:/var/www/certbot
+    entrypoint: /bin/sh -c
+    command: >
+      "trap exit TERM;
+       while :; do sleep 6h & wait $${!}; certbot renew --webroot -w /var/www/certbot --quiet; done"
+    user: "0:0"
+    networks:
+      - freshbid_network
+
+networks:
+  freshbid_network:
+    name: freshbid_network
+    driver: bridge
+  jenkins_network:
+    driver: bridge
+    external: true
+  portainer_network:
+    driver: bridge
+    external: true
+  redis_network:
+    driver: bridge
+    external: true
+  kms_network:
+    driver: bridge
+    external: true
+  minio_network:
+    driver: bridge
+    external: true
+  freshcheck_network:
+    name: freshcheck_network
+    driver: bridge
+volumes:
+  certbot-etc:
+  certbot-webroot:
